@@ -2,7 +2,7 @@ from flask import Flask, request, send_from_directory, redirect, url_for, render
 import os, uuid, json
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = '/tmp/uploads'
 DATA_FILE = 'data.json'
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
