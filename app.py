@@ -9,9 +9,9 @@ app = Flask(__name__)
 UPLOAD_FOLDER = '/tmp/uploads'  # Vercelのストレージに保存されるパス
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Supabase設定（環境変数から取得）
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+# Supabase設定（環境変数から取得）　　　テスト用なので今はもう使えない
+SUPABASE_URL = os.environ.get("https://gbujjifsggmdoufuczpy.supabase.co")
+SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdidWpqaWZzZ2dtZG91ZnVjenB5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ3NjYwMDYsImV4cCI6MjA2MDM0MjAwNn0.FtYFNeA067uhxM_ujabfkwnhBdWJQbo7GVpUzzkjYTo")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # アップロード画面
