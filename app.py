@@ -28,13 +28,18 @@ def index():
     return render_template('upload.html')
 
 # ファイルアップロード
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    file = request.files['file']
+    if request.method == 'GET':
+        # 直接URLを開いたときなど
+        return redirect('/')
+
+    # POST処理（ファイルアップロード）
+    file = request.files.get('file')
     public = 'public' in request.form
 
     if not file:
-        return 'ファイルが選択されていません'
+        return 'ファイルが選択されていません', 400
 
     print(request.files)  # これを追加！
     print(request.form)
