@@ -36,6 +36,9 @@ def upload():
     if not file:
         return 'ファイルが選択されていません'
 
+    print(request.files)  # これを追加！
+    print(request.form)
+
     # ファイル保存
     filename = secure_filename(file.filename)
     file_id = str(uuid.uuid4())  # 一意なファイルID生成
